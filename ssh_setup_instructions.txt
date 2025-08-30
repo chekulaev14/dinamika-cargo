@@ -1,0 +1,20 @@
+SSH НАСТРОЙКА ДЛЯ ВХОДА БЕЗ ПАРОЛЯ
+
+1. Скопируйте приватный ключ на ваш компьютер:
+   scp admin@84.200.24.122:~/.ssh/dinamika_cargo ~/.ssh/
+
+2. Установите правильные права:
+   chmod 600 ~/.ssh/dinamika_cargo
+
+3. Создайте/отредактируйте ~/.ssh/config:
+   Host dinamika-cargo
+       HostName 84.200.24.122
+       User admin
+       Port 22
+       IdentityFile ~/.ssh/dinamika_cargo
+
+4. Теперь входите командой:
+   ssh dinamika-cargo
+
+ИЛИ напрямую:
+   ssh -i ~/.ssh/dinamika_cargo admin@84.200.24.122
